@@ -1,0 +1,7 @@
+The following steps are performed by the Python script:
+
+1. Extract information about Tor relays from cached consensus and descriptor files.
+2. Use MaxMind's free GeoIP database to map their IPs to cities.
+3. Generate XML-based KML file.
+
+http://moblog.wiredwings.com/archives/20101213/Visualization-Tor-nodes-on-Google-Maps-and-Google-Earth.html
