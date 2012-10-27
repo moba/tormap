@@ -191,11 +191,11 @@ def generateFolder(name, styleUrl, relays):
 	group = group + "\n</Folder>"
 	return group
 	
-kmlBody = generateFolder("%s Fast Exits (>= 1MB/s)" % len(exitFastRelays), "#exitFast", exitFastRelays)
-kmlBody = kmlBody + generateFolder("%s Exits" % len(exitRelays), "#exit", exitRelays)
-kmlBody = kmlBody + generateFolder("%s Fast stable nodes (>= 1MB/s)" % len(stableFastRelays), "#stableFast", stableFastRelays)
+kmlBody = generateFolder("%s Other" % len(otherRelays), "#other", otherRelays)
 kmlBody = kmlBody + generateFolder("%s Stable nodes" % len(stableRelays), "#stable", stableRelays)
-kmlBody = kmlBody + generateFolder("%s Other" % len(otherRelays), "#other", otherRelays)
+kmlBody = kmlBody + generateFolder("%s Fast stable nodes (>= 1MB/s)" % len(stableFastRelays), "#stableFast", stableFastRelays)
+kmlBody = kmlBody + generateFolder("%s Exits" % len(exitRelays), "#exit", exitRelays)
+kmlBody = kmlBody + generateFolder("%s Fast Exits (>= 1MB/s)" % len(exitFastRelays), "#exitFast", exitFastRelays)
 
 kml = open('tormap.kml', 'w')
 
