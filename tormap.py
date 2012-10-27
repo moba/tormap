@@ -46,6 +46,9 @@ with open('cached-descriptors') as f:
 			currentRouter['dirport'] = dirport
 		if line.startswith('platform '):
 			currentRouter['version']=line[9:]
+		if line.startswith('fingerprint '):
+			fingerprint=line[12:]
+			currentRouter['fingerprint'] = fingerprint.replace(' ','').lower()	
 		if line.startswith('opt fingerprint'):
 			fingerprint=line[16:]
 			currentRouter['fingerprint'] = fingerprint.replace(' ','').lower()
@@ -145,9 +148,10 @@ for relay in allRelays.values():
 			geoIPdb = pygeoip.GeoIP('GeoLiteCity.dat')
 		info = geoIPdb.record_by_addr(ip)
 		geoIPcache[ip] = info
-	relay['location'] = info
-	relay['latitude'] = info['latitude']
-	relay['longitude'] = info['longitude']
+	if info is not None:
+		relay['location'] = info
+		relay['latitude'] = info['latitude']
+		relay['longitude'] = info['longitude']
 	
 geoIPcache.close()
 
