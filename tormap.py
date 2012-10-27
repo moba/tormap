@@ -24,7 +24,7 @@
  http://www.gnu.org/licenses/
 '''
 
-FAST = 1000000
+FAST = 2000000
 
 import base64, shelve, pygeoip, cgi, re
 from operator import attrgetter, itemgetter
@@ -193,9 +193,9 @@ def generateFolder(name, styleUrl, relays):
 	
 kmlBody = generateFolder("%s Other" % len(otherRelays), "#other", otherRelays)
 kmlBody = kmlBody + generateFolder("%s Stable nodes" % len(stableRelays), "#stable", stableRelays)
-kmlBody = kmlBody + generateFolder("%s Fast stable nodes (>= 1MB/s)" % len(stableFastRelays), "#stableFast", stableFastRelays)
+kmlBody = kmlBody + generateFolder("%s Fast stable nodes (>= 2MB/s)" % len(stableFastRelays), "#stableFast", stableFastRelays)
 kmlBody = kmlBody + generateFolder("%s Exits" % len(exitRelays), "#exit", exitRelays)
-kmlBody = kmlBody + generateFolder("%s Fast Exits (>= 1MB/s)" % len(exitFastRelays), "#exitFast", exitFastRelays)
+kmlBody = kmlBody + generateFolder("%s Fast Exits (>= 2MB/s)" % len(exitFastRelays), "#exitFast", exitFastRelays)
 
 kml = open('tormap.kml', 'w')
 
